@@ -5,6 +5,28 @@ services:
     buildCommand: null
     startCommand: null
     staticPublishPath: .
+    envVars:
+      - key: NODE_ENV
+        value: production
+    headers:
+      - path: /*
+        name: Content-Type
+        value: text/html; charset=utf-8
+      - path: /*.html
+        name: Content-Type
+        value: text/html; charset=utf-8
+      - path: /*.css
+        name: Content-Type
+        value: text/css; charset=utf-8
+      - path: /*.js
+        name: Content-Type
+        value: application/javascript; charset=utf-8
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
     routes:
       - type: rewrite
         source: /*
