@@ -366,10 +366,10 @@ document.querySelectorAll('.social-link').forEach(link => {
     });
 });
 
-// Matrix rain effect for hero section
+// Enhanced Matrix rain effect for background
 function createMatrixRain() {
-    const hero = document.querySelector('.hero');
-    if (!hero) return;
+    const matrixBg = document.getElementById('matrixBg');
+    if (!matrixBg) return;
     
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
@@ -380,9 +380,9 @@ function createMatrixRain() {
     canvas.style.height = '100%';
     canvas.style.pointerEvents = 'none';
     canvas.style.zIndex = '0';
-    canvas.style.opacity = '0.3';
+    canvas.style.opacity = '0.2';
     
-    hero.appendChild(canvas);
+    matrixBg.appendChild(canvas);
     
     const width = canvas.width = window.innerWidth;
     const height = canvas.height = window.innerHeight;

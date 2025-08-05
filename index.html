@@ -1623,11 +1623,329 @@
                 padding: 1.5rem;
             }
         }
+
+        /* Matrix Rain Background Effect */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .matrix-rain {
+            position: absolute;
+            color: #39ff14;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 14px;
+            text-shadow: 0 0 5px #39ff14;
+            animation: matrixFall linear infinite;
+        }
+
+        @keyframes matrixFall {
+            0% {
+                transform: translateY(-100vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Holographic Card Effect */
+        .project-card, .skill-category, .tool-category, .certification-card, .achievement-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::after, .skill-category::after, .tool-category::after, 
+        .certification-card::after, .achievement-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(57, 255, 20, 0.1) 25%, 
+                rgba(57, 255, 20, 0.2) 50%, 
+                rgba(57, 255, 20, 0.1) 75%, 
+                transparent 100%);
+            animation: holographic 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes holographic {
+            0% {
+                left: -100%;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                left: 100%;
+                opacity: 0;
+            }
+        }
+
+        /* Enhanced Holographic Effect for Project Cards */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, transparent 30%, rgba(57, 255, 20, 0.05) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(57, 255, 20, 0.03) 50%, transparent 70%);
+            animation: holographicShift 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes holographicShift {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translateX(0) translateY(0);
+            }
+            25% {
+                opacity: 0.6;
+                transform: translateX(5px) translateY(-5px);
+            }
+            50% {
+                opacity: 0.4;
+                transform: translateX(-3px) translateY(3px);
+            }
+            75% {
+                opacity: 0.7;
+                transform: translateX(2px) translateY(-2px);
+            }
+        }
+
+        /* Animated Skill Icons */
+        .skill-item {
+            position: relative;
+        }
+
+        .skill-icon {
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(57, 255, 20, 0.2) 0%, rgba(57, 255, 20, 0.05) 70%);
+            border: 1px solid #39ff14;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #39ff14;
+            box-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
+            animation: skillIconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes skillIconPulse {
+            0%, 100% {
+                box-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
+                transform: translateY(-50%) scale(1);
+            }
+            50% {
+                box-shadow: 0 0 15px rgba(57, 255, 20, 0.6);
+                transform: translateY(-50%) scale(1.1);
+            }
+        }
+
+        /* Skill Icons for different categories */
+        .skill-icon.python::before { content: '🐍'; }
+        .skill-icon.javascript::before { content: '⚡'; }
+        .skill-icon.html::before { content: '🌐'; }
+        .skill-icon.css::before { content: '🎨'; }
+        .skill-icon.java::before { content: '☕'; }
+        .skill-icon.sql::before { content: '🗄️'; }
+        .skill-icon.linux::before { content: '🐧'; }
+        .skill-icon.network::before { content: '🌐'; }
+        .skill-icon.security::before { content: '🔒'; }
+        .skill-icon.pentest::before { content: '⚔️'; }
+        .skill-icon.forensics::before { content: '🔍'; }
+        .skill-icon.malware::before { content: '🦠'; }
+
+        /* Tool Icons */
+        .tool-icon {
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            background: radial-gradient(circle, rgba(57, 255, 20, 0.15) 0%, rgba(57, 255, 20, 0.03) 70%);
+            border: 1px solid rgba(57, 255, 20, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: #39ff14;
+            box-shadow: 0 0 6px rgba(57, 255, 20, 0.2);
+            animation: toolIconPulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes toolIconPulse {
+            0%, 100% {
+                box-shadow: 0 0 6px rgba(57, 255, 20, 0.2);
+                transform: translateY(-50%) scale(1);
+            }
+            50% {
+                box-shadow: 0 0 12px rgba(57, 255, 20, 0.4);
+                transform: translateY(-50%) scale(1.05);
+            }
+        }
+
+        /* Tool Icons for different categories */
+        .tool-icon.wireshark::before { content: '📡'; }
+        .tool-icon.nmap::before { content: '🔍'; }
+        .tool-icon.metasploit::before { content: '💣'; }
+        .tool-icon.burp::before { content: '🕷️'; }
+        .tool-icon.nessus::before { content: '🔬'; }
+        .tool-icon.kali::before { content: '⚡'; }
+        .tool-icon.vmware::before { content: '🖥️'; }
+        .tool-icon.virtualbox::before { content: '📦'; }
+        .tool-icon.git::before { content: '📚'; }
+        .tool-icon.docker::before { content: '🐳'; }
+
+        /* Enhanced Skill Item Layout */
+        .skill-item {
+            padding-left: 35px;
+            position: relative;
+        }
+
+        .tool-item {
+            padding-left: 35px;
+            position: relative;
+        }
+
+        /* Matrix Rain Intensity Control */
+        .matrix-bg {
+            opacity: 0.3;
+        }
+
+        /* Enhanced Card Hover Effects */
+        .project-card:hover::after,
+        .skill-category:hover::after,
+        .tool-category:hover::after,
+        .certification-card:hover::after,
+        .achievement-card:hover::after {
+            animation-duration: 1.5s;
+        }
+
+        /* Skill Progress with Icon Animation */
+        .skill-progress {
+            position: relative;
+        }
+
+        .skill-progress::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.3) 50%, 
+                transparent 100%);
+            animation: progressShine 2s ease-in-out infinite;
+        }
+
+        @keyframes progressShine {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* Enhanced Timeline with Holographic Effect */
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(57, 255, 20, 0.05) 50%, 
+                transparent 100%);
+            animation: timelineHolographic 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes timelineHolographic {
+            0% {
+                left: -100%;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                left: 100%;
+                opacity: 0;
+            }
+        }
+
+        /* Contact Items with Holographic Effect */
+        .contact-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(57, 255, 20, 0.05) 50%, 
+                transparent 100%);
+            animation: contactHolographic 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes contactHolographic {
+            0% {
+                left: -100%;
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                left: 100%;
+                opacity: 0;
+            }
+        }
     </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
+    <body>
+        <!-- Matrix Rain Background -->
+        <div class="matrix-bg" id="matrixBg"></div>
+        
+        <!-- Navigation -->
+        <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="#home">cyber_ritik</a>
@@ -1757,18 +2075,21 @@
                     <h3>Penetration Testing</h3>
                     <div class="skill-items">
                         <div class="skill-item">
+                            <div class="skill-icon security"></div>
                             <span>Web Application Security</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 95%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
+                            <div class="skill-icon security"></div>
                             <span>API Security Testing</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 90%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
+                            <div class="skill-icon security"></div>
                             <span>Mobile Application Security</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="width: 88%"></div>
@@ -1905,6 +2226,7 @@
                     <h3>Web Security Tools</h3>
                     <div class="tool-items">
                         <div class="tool-item">
+                            <div class="tool-icon burp"></div>
                             <span>Burp Suite (Pro/Community)</span>
                             <div class="tool-bar">
                                 <div class="tool-progress" style="width: 95%"></div>
