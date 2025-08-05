@@ -31,7 +31,7 @@
       ]
     },
     {
-      "source": "/*.css",
+      "source": "/styles.css",
       "headers": [
         {
           "key": "Content-Type",
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "source": "/*.js",
+      "source": "/script.js",
       "headers": [
         {
           "key": "Content-Type",
